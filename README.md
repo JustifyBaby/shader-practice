@@ -27,4 +27,4 @@ node generate.js <GEOMETRY_NAME>
 I built this environment with reference to the following repository. Thank you.
 
 - [threejs-shader-setup (by Shin-sibainu)](https://github.com/Shin-sibainu/threejs-shader-setup)
-- [MiniEngine by (yucchiy)](https://github.com/yucchiy/MiniEngine)
+- [MiniEngine (by yucchiy)](https://github.com/yucchiy/MiniEngine)

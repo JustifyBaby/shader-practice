@@ -1,5 +1,10 @@
 const fs = require("node:fs");
+const { exit } = require("node:process");
 const name = process.argv[2];
+if (name.toLocaleLowerCase() === "common") {
+  console.log("ERROR! 'common' is specially name");
+  exit();
+}
 const PATH = `./src/shaders/${name}`;
 
 const fragmentShaderCode = `/* ↓ When using RawShaderMaterial, please uncomment the following. */

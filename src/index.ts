@@ -26,6 +26,9 @@ const scene = new THREE.Scene();
  */
 // const textureLoader = new THREE.TextureLoader();
 
+/**
+ * Meshes
+ */
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
 scene.add(planeMesh);
 

@@ -3,19 +3,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const debug = process.env.NODE_ENV !== "production";
 
+/** @type import('webpack').Configuration */
 module.exports = {
-  entry: path.resolve(__dirname, "src/entrypoint.ts"),
+  entry: path.resolve(__dirname, "src/index.ts"),
   plugins: [
     new HtmlWebpackPlugin({
       templateParameters: {
-        title: "MiniEngein",
+        title: "My-Shader-Tutorial",
       },
-      template: path.resolve(__dirname, "src/index.html"),
+      template: path.resolve(__dirname, "dist/index.html"),
       inject: "body",
     }),
   ],
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   resolve: {
@@ -30,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.(tsx|ts)$/,
-        exclude: /node_modules/,
+        exclude: "/node_modules/",
         use: ["ts-loader"],
       },
       {
@@ -44,6 +45,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

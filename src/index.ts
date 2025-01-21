@@ -1,6 +1,11 @@
 import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import commonShader from "./shaders/common/common.glsl";
+import { planeGeometry, planeMaterial } from "./shaders/plane/Plane";
+// import { boxGeometry, boxMaterial } from "./shaders/box/Box";
+
+THREE.ShaderChunk["common"] = commonShader;
 
 /**
  * Sizes
@@ -11,7 +16,7 @@ const sizes = {
 };
 
 // Canvas
-const canvas = document.querySelector("canvas");
+const canvas = document.querySelector("canvas")!;
 
 // Scene
 const scene = new THREE.Scene();
@@ -21,21 +26,11 @@ const scene = new THREE.Scene();
  */
 // const textureLoader = new THREE.TextureLoader();
 
-// Geometry
-const plane = new THREE.PlaneGeometry(1, 1, 32, 32);
-const box = new THREE.BoxGeometry(10, 10, 10);
+const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
+scene.add(planeMesh);
 
-// Material
-const material = new THREE.RawShaderMaterial({
-  fragmentShader,
-  vertexShader,
-});
-
-// Mesh
-const mesh = new THREE.Mesh(plane, material);
-const boxMesh = new THREE.Mesh(box, boxGeoMaterial);
-scene.add(mesh);
-scene.add(boxMesh);
+// const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+// scene.add(boxMesh);
 
 window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
@@ -55,7 +50,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(0.25, -0.25, 1);
+camera.position.set(1 / 4, 1 / 4, 1);
 scene.add(camera);
 
 // Controls

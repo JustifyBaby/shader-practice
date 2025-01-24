@@ -9,8 +9,8 @@ const PATH = `./src/shaders/${name}`;
 
 const fragmentShaderCode = `/* ↓ When using RawShaderMaterial, please uncomment the following. */
 // precision mediump float;
-
 #include <common>
+
 void main() {
     gl_FragColor = getAllColor(255, 255, 255, 1.0);
 }`;
@@ -20,6 +20,8 @@ const vertexShaderCode = `/* ↓ When using RawShaderMaterial, please uncomment 
 // uniform mat4 viewMatrix;
 // uniform mat4 modelMatrix;
 // attribute vec3 position;
+
+#include <common>
 
 vec4 setPosition(vec4 modelPosition) {
     return modelPosition;

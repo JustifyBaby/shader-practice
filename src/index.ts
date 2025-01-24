@@ -3,7 +3,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import commonShader from "./shaders/common/common.glsl";
 import { planeGeometry, planeMaterial } from "./shaders/plane/Plane";
-// import { boxGeometry, boxMaterial } from "./shaders/box/Box";
 
 THREE.ShaderChunk["common"] = commonShader;
 
@@ -31,9 +30,6 @@ const scene = new THREE.Scene();
  */
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
 scene.add(planeMesh);
-
-// const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-// scene.add(boxMesh);
 
 window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
@@ -63,9 +59,7 @@ controls.enableDamping = true;
 /**
  * Renderer
  */
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-});
+const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 

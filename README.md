@@ -22,6 +22,10 @@ If you wanna make geometry with shader, run this.
 node generate.js <GEOMETRY_NAME>
 ```
 
+### notice
+
+The variables in "<GEOMETRY_NAME>.ts" must export to add this project's scene.
+
 ## Thanks
 
 I built this environment with reference to the following repository. Thank you.
